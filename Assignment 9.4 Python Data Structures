@@ -1,0 +1,16 @@
+emails=[]
+name = input("Enter file:")
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open(name)
+for line in handle:
+    
+    if line.startswith('From '):
+    	line.split()
+    	email1=(line[5:-26])
+        emails.append(email1)
+
+counts=dict()
+for email in emails:
+    counts[email]=counts.get(email,0)+1
+m=(max(counts, key=counts.get))
+print(m,counts[m])
